@@ -7,15 +7,15 @@ import (
 )
 
 type Handler struct {
-    rpc.AnalyzerServiceServer
+    rpc.ServerAnalyzerServiceServer
 }
 type Analyzer struct {
     Handler *Handler
 }
 
-func (a *Handler) Run(context.Context, *v1.AnalyzerRunRequest) (*v1.AnalyzerRunResponse, error) {
+func (a *Handler) Run(context.Context, *v1.RunRequest) (*v1.RunResponse, error) {
 
-    response := &v1.AnalyzerRunResponse{
+    response := &v1.RunResponse{
         Result: &v1.Result{
             Name:    "example",
             Details: "example",
